@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route, NavLink, Navigate } from "react-router-dom";
 import reactLogo from "../assets/react.svg";
-import { routes } from '../01-lazyload/router/routes';
+import { routes } from './routes';
 import { Suspense } from "react";
 
 export const Navigation = () => {
@@ -29,7 +29,7 @@ export const Navigation = () => {
                 </div>
                 <Routes>
                     {routes.map(({ name, path, Component }) => (<Route key={name} path={path} Component={Component} />))}
-                    <Route path='*' element={<Navigate to={routes[0].path} replace={true} />} />
+                    <Route path='/*' element={<Navigate to={routes[0].path} replace={true} />} />
                 </Routes>
             </BrowserRouter>
         </Suspense>
