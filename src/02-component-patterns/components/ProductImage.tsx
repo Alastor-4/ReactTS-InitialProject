@@ -1,8 +1,14 @@
-import { useContext } from 'react';
+import { useContext, CSSProperties } from 'react';
 import { ProductContext } from './ProductCard';
 import noImage from '../assets/no-image.jpg'
 
-export const ProductImage = ({ img = '' }): JSX.Element => {
+export interface Props {
+    img?: string,
+    className?: string,
+    style?: CSSProperties
+}
+
+export const ProductImage = ({ img = '', className, style }: Props): JSX.Element => {
     const { product } = useContext(ProductContext);
     let imageToShow: string;
     if (img) {
@@ -12,5 +18,5 @@ export const ProductImage = ({ img = '' }): JSX.Element => {
     } else {
         imageToShow = noImage
     }
-    return <img className="rounded-t-2xl w-full" src={imageToShow} alt="Product" />
+    return <img className={`w-full ${className}`} style={style} src={imageToShow} alt="Product" />
 }
