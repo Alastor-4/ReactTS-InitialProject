@@ -13,7 +13,7 @@ export const MyTextInput = ({ label, ...props }: Props) => {
     return (
         <>
             <label htmlFor={props.id || props.name} className="text-white">{label}</label>
-            <input {...field} {...props} />
+            <input {...field} {...props} className="rounded-md focus:outline-none pl-1 py-1" />
             <ErrorMessage name={props.name} component="span" className="text-red-600 text-lg" />
         </>
     )
